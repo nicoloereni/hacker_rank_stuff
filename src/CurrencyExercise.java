@@ -25,13 +25,10 @@ public class CurrencyExercise {
         System.out.println("France: " + getFormattedPayment("France", payment));
     }
 
+    //public just for testing it
     public static String getFormattedPayment(String country, double payment)
     {
-        return getCurrencyInstance(getLocaleFromCountry(country)).format(payment);
+        return getCurrencyInstance(LOCALE_HASH_MAP.get(country)).format(payment);
     }
 
-    private static Locale getLocaleFromCountry(String country)
-    {
-        return LOCALE_HASH_MAP.get(country);
-    }
 }
