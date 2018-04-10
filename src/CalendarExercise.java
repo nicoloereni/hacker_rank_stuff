@@ -20,14 +20,14 @@ public class CalendarExercise {
             int parsedYear = Integer.parseInt(year);
 
             Calendar calendar = new GregorianCalendar(parsedYear, parsedMonth, parsedDay);
-            result = DAYS.get(calendar.get(calendar.DAY_OF_WEEK));
+            result = DAYS.get(calendar.get(Calendar.DAY_OF_WEEK));
         }
 
         return result;
     }
 
     private static boolean isYearValid(String year) {
-        int parsewdYear = Integer.parseInt(year);
-        return parsewdYear < 3000 && parsewdYear > 2000;
+        int parsedYear = Integer.parseInt(year);
+        return parsedYear < 3000 && parsedYear > 2000;
     }
 }
