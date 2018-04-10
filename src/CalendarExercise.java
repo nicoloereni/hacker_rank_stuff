@@ -1,9 +1,17 @@
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CalendarExercise {
+    private static final Map<Integer, String> DAYS = new HashMap<>();
+    static {
+        DAYS.put(Calendar.SUNDAY, "SUNDAY");
+        DAYS.put(Calendar.MONDAY, "MONDAY");
+        DAYS.put(Calendar.TUESDAY, "TUESDAY");
+        DAYS.put(Calendar.WEDNESDAY, "WEDNESDAY");
+        DAYS.put(Calendar.THURSDAY, "THURSDAY");
+        DAYS.put(Calendar.FRIDAY, "FRIDAY");
+        DAYS.put(Calendar.SATURDAY, "SATURDAY");
+    }
+
     public static String getDay(String day, String month, String year) {
         String result = "";
         if (isYearValid(year)) {
@@ -12,23 +20,10 @@ public class CalendarExercise {
             int parsedYear = Integer.parseInt(year);
 
             Calendar calendar = new GregorianCalendar(parsedYear, parsedMonth, parsedDay);
-            result = dayFromPosition(calendar.get(calendar.DAY_OF_WEEK));
+            result = DAYS.get(calendar.get(calendar.DAY_OF_WEEK));
         }
 
         return result;
-    }
-
-    private static String dayFromPosition(int position) {
-        Map<Integer, String> days = new HashMap<>();
-        days.put(Calendar.SUNDAY, "SUNDAY");
-        days.put(Calendar.MONDAY, "MONDAY");
-        days.put(Calendar.TUESDAY, "TUESDAY");
-        days.put(Calendar.WEDNESDAY, "WEDNESDAY");
-        days.put(Calendar.THURSDAY, "THURSDAY");
-        days.put(Calendar.FRIDAY, "FRIDAY");
-        days.put(Calendar.SATURDAY, "SATURDAY");
-
-        return days.get(position);
     }
 
     private static boolean isYearValid(String year) {
